@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlinAndroidKsp)
+    alias(libs.plugins.hiltAndroid)
 }
 
 android {
@@ -35,11 +37,20 @@ android {
 dependencies {
 
     implementation(libs.material)
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+
+
+    // hilt
+   // implementation(libs.hilt.android)
+
+    implementation ("com.google.dagger:hilt-android:2.40.5")
+    ksp(libs.hilt.compiler)
+
+
 }
